@@ -1,6 +1,7 @@
 'use client';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useLayoutEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ProjectCard, type Project } from './project-card';
 import {
   Dialog,
@@ -19,65 +20,98 @@ import { ArrowUpRight } from 'lucide-react';
 const projects: Project[] = [
   {
     title: "QuantumLeap",
-    description: "An analytics dashboard that provides real-time insights and data visualization for SaaS companies.",
+    description: "An analytics dashboard that provides real-time insights and data visualization for SaaS companies. Built with a focus on performance and user experience.",
     image: "https://placehold.co/600x400.png",
     hint: "dashboard analytics",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "GSAP"],
     liveUrl: "#",
   },
   {
     title: "Nova CRM",
-    description: "A customer relationship management platform designed for small businesses to manage leads and sales pipelines.",
+    description: "A customer relationship management platform designed for small businesses to manage leads, opportunities, and sales pipelines with an intuitive interface.",
     image: "https://placehold.co/600x400.png",
     hint: "crm software",
-    tags: ["React", "Node.js", "Express", "MongoDB"],
+    tags: ["React", "Node.js", "Express", "MongoDB", "Material-UI"],
     liveUrl: "#",
   },
   {
     title: "Aether CMS",
-    description: "A headless content management system with a focus on developer experience and a flexible API.",
+    description: "A headless content management system offering a flexible GraphQL API and a powerful editor experience for developers and content creators alike.",
     image: "https://placehold.co/600x400.png",
     hint: "software interface",
-    tags: ["SvelteKit", "GraphQL", "PostgreSQL", "Docker"],
+    tags: ["SvelteKit", "GraphQL", "PostgreSQL", "Docker", "Auth.js"],
     liveUrl: "#",
   },
   {
     title: "Zenith Wallet",
-    description: "A minimalist crypto wallet for managing digital assets on the go, with top-tier security features.",
+    description: "A minimalist and secure crypto wallet for managing digital assets on the go. Supports multiple blockchains and includes biometric authentication.",
     image: "https://placehold.co/600x400.png",
     hint: "mobile app",
-    tags: ["React Native", "Firebase", "ethers.js"],
+    tags: ["React Native", "Firebase", "ethers.js", "Solidity"],
     liveUrl: "#",
   },
+  {
+    title: "ConnectSphere",
+    description: "A social networking platform for professionals to connect, share insights, and build their personal brand. Features real-time chat and event organization.",
+    image: "https://placehold.co/600x400.png",
+    hint: "social network",
+    tags: ["Vue.js", "Django", "websockets", "Redis"],
+    liveUrl: "#",
+  },
+  {
+    title: "EcoTrack",
+    description: "An application for tracking personal carbon footprint and promoting sustainable habits through gamification and community challenges.",
+    image: "https://placehold.co/600x400.png",
+    hint: "sustainability app",
+    tags: ["Flutter", "Firebase", "Google Maps API"],
+    liveUrl: "#",
+  }
 ];
 
-const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut', staggerChildren: 0.2 } },
-};
+gsap.registerPlugin(ScrollTrigger);
 
 export function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+        if (gridRef.current) {
+            const cards = gsap.utils.toArray<HTMLDivElement>('.project-card-wrapper');
+            gsap.from(cards, {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: gridRef.current,
+                    start: 'top 80%', 
+                    toggleActions: 'play none none none',
+                }
+            });
+        }
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
-      <motion.section
+      <section
         id="projects"
+        ref={containerRef}
         className="container mx-auto max-w-7xl py-20 md:py-32"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={sectionVariants}
       >
         <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-primary md:text-5xl">My Work</h2>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div ref={gridRef} className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {projects.map((project) => (
-            <motion.div key={project.title} variants={sectionVariants}>
+            <div key={project.title} className="project-card-wrapper">
                 <ProjectCard project={project} onOpen={() => setSelectedProject(project)} />
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.section>
+      </section>
 
       <Dialog open={!!selectedProject} onOpenChange={(isOpen) => !isOpen && setSelectedProject(null)}>
         <DialogContent className="max-w-3xl">
@@ -94,16 +128,16 @@ export function ProjectsSection() {
               </DialogDescription>
               <div className="aspect-video w-full overflow-hidden rounded-lg border">
                 <Image
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
+                  src={selected.image}
+                  alt={selected.title}
                   width={1200}
                   height={675}
-                  data-ai-hint={selectedProject.hint}
+                  data-ai-hint={selected.hint}
                   className="h-full w-full object-cover"
                 />
               </div>
               <Button asChild className="w-fit">
-                <Link href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" data-cursor-hover>
+                <Link href={selected.liveUrl} target="_blank" rel="noopener noreferrer" data-cursor-hover>
                   View Live Site <ArrowUpRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
