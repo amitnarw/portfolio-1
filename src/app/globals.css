@@ -86,7 +86,7 @@
         @apply border border-white/10 bg-white/5 backdrop-blur-lg;
     }
     .neon-glow {
-        box-shadow: 0 0 5px theme('colors.primary / 50%'), 0 0 20px theme('colors.primary / 30%');
+        box-shadow: 0 0 5px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
     }
     .text-glow {
         text-shadow: 0 0 8px hsl(var(--primary) / 0.7);

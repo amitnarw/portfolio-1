@@ -21,17 +21,17 @@ export function Header() {
     >
       <div className="container mx-auto flex max-w-7xl items-center justify-between p-4">
         <Link href="/" className="group" data-cursor-hover>
-          <div className="text-2xl font-bold tracking-wider text-foreground">
+          <div className="text-2xl font-bold tracking-wider text-foreground hover:text-glow">
             A<span className="text-primary transition-colors group-hover:text-accent">.</span>
           </div>
         </Link>
         <nav className="hidden items-center gap-2 rounded-full border border-border/50 bg-background/50 p-1 backdrop-blur-sm md:flex">
           {navItems.map((item) => (
-            <Button key={item.name} asChild variant="ghost" className="rounded-full">
+            <Button key={item.name} asChild variant="ghost" className="rounded-full hover:text-glow">
               <Link href={item.href} data-cursor-hover>{item.name}</Link>
             </Button>
           ))}
-          <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+          <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 hover:text-glow">
              <Link href="#contact" data-cursor-hover>Contact</Link>
           </Button>
         </nav>

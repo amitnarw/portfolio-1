@@ -31,7 +31,7 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
         width={600}
         height={400}
         data-ai-hint={project.hint}
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       <div className="absolute inset-0 flex flex-col items-start justify-end p-6 text-white">
