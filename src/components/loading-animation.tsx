@@ -18,7 +18,7 @@ export function LoadingAnimation() {
   useEffect(() => {
     const interval = setInterval(() => {
         setIndex((prevIndex) => (prevIndex + 1) % welcomeMessages.length);
-    }, 250);
+    }, 350);
 
     const timer = setTimeout(() => {
         clearInterval(interval);
@@ -43,7 +43,7 @@ export function LoadingAnimation() {
             <motion.p
                 key={welcomeMessages[index]}
                 initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1, transition: { duration: 0.2, ease: 'easeInOut' } }}
+                animate={{ y: 0, opacity: 1, transition: { duration: 0.3, ease: 'easeInOut' } }}
                 exit={{ y: -20, opacity: 0 }}
                 className="text-center text-2xl text-foreground/80"
             >
