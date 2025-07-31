@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -63,7 +64,7 @@ export const CustomCursor = () => {
       <motion.div
         className={cn(
             "pointer-events-none fixed z-[9999] hidden rounded-full border border-primary md:block",
-            cursorType === 'hover' && "bg-primary/20"
+            cursorType === 'hover' && "bg-primary/20 shadow-[0_0_20px_hsl(var(--primary))]"
         )}
         style={{
           left: cursorOutlineX,

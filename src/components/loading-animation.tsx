@@ -1,22 +1,10 @@
+
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const welcomeMessages = ["Hello", "Bonjour", "Hola", "Ciao", "Olá", "Namaste", "Konnichiwa"];
-
-const letterVariants = (i: number) => ({
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            delay: i * 0.05,
-            duration: 0.5,
-            ease: [0.6, 0.05, 0.01, 0.95],
-        },
-    },
-});
 
 const progressVariants = {
     initial: { width: '0%' },
@@ -26,7 +14,6 @@ const progressVariants = {
 
 export function LoadingAnimation() {
   const [index, setIndex] = useState(0);
-  const text = "AURA";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,31 +37,15 @@ export function LoadingAnimation() {
       exit={{opacity: 0, transition: {duration: 0.5}}}
     >
         <motion.h1 className="sr-only">Aura Portfolio</motion.h1>
-      <motion.div 
-        className="flex text-6xl font-bold tracking-widest text-primary mb-8" 
-        aria-hidden
-        initial="hidden"
-        animate="visible"
-        variants={{
-            hidden: {opacity: 0},
-            visible: {opacity: 1, transition: {staggerChildren: 0.1}}
-        }}
-      >
-        {text.split("").map((letter, i) => (
-            <motion.span key={i} variants={letterVariants(i)}>
-                {letter}
-            </motion.span>
-        ))}
-      </motion.div>
-
-      <div className="absolute bottom-1/4 w-48 overflow-hidden font-headline">
+      
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 overflow-hidden font-headline">
         <AnimatePresence mode="wait">
             <motion.p
                 key={welcomeMessages[index]}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1, transition: { duration: 0.2, ease: 'easeInOut' } }}
                 exit={{ y: -20, opacity: 0 }}
-                className="text-center text-lg text-foreground/80"
+                className="text-center text-2xl text-foreground/80"
             >
                 {welcomeMessages[index]}
             </motion.p>
