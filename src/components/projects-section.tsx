@@ -21,7 +21,7 @@ const projects: Project[] = [
   {
     title: "QuantumLeap",
     description: "An analytics dashboard that provides real-time insights and data visualization for SaaS companies. Built with a focus on performance and user experience.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
     hint: "dashboard analytics",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Recharts", "GSAP"],
     liveUrl: "#",
@@ -29,7 +29,7 @@ const projects: Project[] = [
   {
     title: "Nova CRM",
     description: "A customer relationship management platform designed for small businesses to manage leads, opportunities, and sales pipelines with an intuitive interface.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop",
     hint: "crm software",
     tags: ["React", "Node.js", "Express", "MongoDB", "Material-UI"],
     liveUrl: "#",
@@ -37,7 +37,7 @@ const projects: Project[] = [
   {
     title: "Aether CMS",
     description: "A headless content management system offering a flexible GraphQL API and a powerful editor experience for developers and content creators alike.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1542314831-068cd1dbb563?q=80&w=600&auto=format&fit=crop",
     hint: "software interface",
     tags: ["SvelteKit", "GraphQL", "PostgreSQL", "Docker", "Auth.js"],
     liveUrl: "#",
@@ -45,7 +45,7 @@ const projects: Project[] = [
   {
     title: "Zenith Wallet",
     description: "A minimalist and secure crypto wallet for managing digital assets on the go. Supports multiple blockchains and includes biometric authentication.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1634424410915-a9b0a1a01538?q=80&w=600&auto=format&fit=crop",
     hint: "mobile app",
     tags: ["React Native", "Firebase", "ethers.js", "Solidity"],
     liveUrl: "#",
@@ -53,7 +53,7 @@ const projects: Project[] = [
   {
     title: "ConnectSphere",
     description: "A social networking platform for professionals to connect, share insights, and build their personal brand. Features real-time chat and event organization.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?q=80&w=600&auto=format&fit=crop",
     hint: "social network",
     tags: ["Vue.js", "Django", "websockets", "Redis"],
     liveUrl: "#",
@@ -61,7 +61,7 @@ const projects: Project[] = [
   {
     title: "EcoTrack",
     description: "An application for tracking personal carbon footprint and promoting sustainable habits through gamification and community challenges.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1611270425838-6fe794628889?q=80&w=600&auto=format&fit=crop",
     hint: "sustainability app",
     tags: ["Flutter", "Firebase", "Google Maps API"],
     liveUrl: "#",

@@ -30,7 +30,7 @@ export function AboutSection() {
             <div className="relative h-64 w-64 justify-self-center md:h-80 md:w-80">
                 <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl"></div>
                 <Image
-                    src="https://placehold.co/400x400.png"
+                    src="https://images.unsplash.com/photo-1603415526960-f7e0328f35a4?q=80&w=400&auto=format&fit=crop"
                     alt="A portrait of Amit"
                     width={400}
                     height={400}
