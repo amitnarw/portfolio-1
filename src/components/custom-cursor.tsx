@@ -64,8 +64,7 @@ export const CustomCursor = () => {
       <motion.div
         className={cn(
             "pointer-events-none fixed z-[9999] hidden rounded-full border border-primary/50 md:block",
-            "shadow-[0_0_200px_hsl(var(--primary)/0.9)]",
-            cursorType === 'hover' && "bg-primary/20 shadow-[0_0_250px_hsl(var(--primary)/1)]"
+            cursorType === 'hover' && "bg-primary/20"
         )}
         style={{
           left: cursorOutlineX,
