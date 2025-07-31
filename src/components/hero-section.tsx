@@ -15,7 +15,7 @@ export function HeroSection() {
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
   };
 
   return (
@@ -27,18 +27,18 @@ export function HeroSection() {
         animate="visible"
     >
       <motion.h1
-        className="text-5xl font-bold font-headline tracking-tight text-foreground md:text-7xl lg:text-8xl text-glow"
+        className="text-6xl font-bold font-headline tracking-tighter text-foreground md:text-8xl lg:text-9xl text-glow"
         variants={itemVariants}
       >
-        Hi, I&apos;m Amit
+        Hi, I'm Amit
       </motion.h1>
       <motion.p
-        className="mt-4 max-w-2xl text-lg text-foreground/80 md:text-xl"
+        className="mt-6 max-w-2xl text-lg text-foreground/80 md:text-xl"
         variants={itemVariants}
       >
         A creative developer turning ideas into beautiful and functional web experiences.
       </motion.p>
-      <motion.div className="mt-8 flex gap-4" variants={itemVariants}>
+      <motion.div className="mt-10 flex gap-4" variants={itemVariants}>
         <Button asChild size="lg" className="rounded-full">
           <Link href="#projects" data-cursor-hover>View My Work</Link>
         </Button>
@@ -57,10 +57,10 @@ export function HeroSection() {
           ease: "easeInOut"
         }}
       >
-        <div className="h-8 w-5 rounded-full border-2 border-foreground">
+        <div className="h-10 w-6 rounded-full border-2 border-foreground/50">
           <motion.div
-            className="mx-auto mt-2 h-2 w-2 rounded-full bg-foreground"
-            animate={{ y: [0, 8, 0] }}
+            className="mx-auto mt-2 h-2 w-2 rounded-full bg-foreground/50"
+            animate={{ y: [0, 12, 0] }}
             transition={{
               duration: 1.5,
               repeat: Infinity,

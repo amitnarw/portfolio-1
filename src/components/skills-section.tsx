@@ -37,10 +37,10 @@ export function SkillsSection() {
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <h2 className="mb-12 text-center text-4xl font-bold font-headline tracking-tight text-primary md:text-5xl text-glow">My Skills</h2>
+      <h2 className="mb-12 text-center text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text">My Skills</h2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
         {skillCategories.map((category) => (
-            <motion.div key={category.name} className="rounded-lg border bg-card p-6 glass-card neon-glow" variants={itemVariants}>
+            <motion.div key={category.name} className="rounded-lg p-6 glass-card neon-glow" variants={itemVariants}>
                 <div className="mb-4 flex items-center gap-4">
                     {category.icon}
                     <h3 className="text-2xl font-bold font-headline text-foreground">{category.name}</h3>

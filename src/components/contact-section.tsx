@@ -69,9 +69,9 @@ export function ContactSection() {
       variants={sectionVariants}
     >
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-4xl font-bold font-headline tracking-tight text-primary md:text-5xl text-glow">Get In Touch</h2>
+        <h2 className="text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text">Get In Touch</h2>
         <p className="mt-4 text-lg text-foreground/80">
-          Have a project in mind or just want to say hello? I&apos;d love to hear from you.
+          Have a project in mind or just want to say hello? I'd love to hear from you.
         </p>
       </div>
 
