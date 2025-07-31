@@ -103,7 +103,7 @@ export function ProjectsSection() {
         ref={containerRef}
         className="container mx-auto max-w-7xl py-20 md:py-32"
       >
-        <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-primary md:text-5xl text-glow">My Work</h2>
+        <h2 className="mb-12 text-center text-4xl font-bold font-headline tracking-tight text-primary md:text-5xl text-glow">My Work</h2>
         <div ref={gridRef} className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {projects.map((project) => (
             <div key={project.title} className="project-card-wrapper">
@@ -118,7 +118,7 @@ export function ProjectsSection() {
           {selectedProject && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-3xl font-bold text-primary">{selectedProject.title}</DialogTitle>
+                <DialogTitle className="text-3xl font-bold font-headline text-primary">{selectedProject.title}</DialogTitle>
                 <div className="flex flex-wrap gap-2 pt-2">
                     {selectedProject.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                 </div>

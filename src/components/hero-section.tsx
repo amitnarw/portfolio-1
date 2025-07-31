@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from './ui/button';
-import { AuroraBackground } from './aurora-background';
 
 export function HeroSection() {
   const containerVariants = {
@@ -20,60 +19,57 @@ export function HeroSection() {
   };
 
   return (
-    <AuroraBackground>
-        <motion.section
-            id="home"
-            className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden text-center"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-        >
-        
-        <motion.h1 
-            className="text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl text-glow"
-            variants={itemVariants}
-        >
-            Hi, I&apos;m Amit
-        </motion.h1>
-        <motion.p 
-            className="mt-4 max-w-2xl text-lg text-foreground/80 md:text-xl"
-            variants={itemVariants}
-        >
-            A creative developer turning ideas into beautiful and functional web experiences.
-        </motion.p>
-        <motion.div className="mt-8 flex gap-4" variants={itemVariants}>
-            <Button asChild size="lg" className="rounded-full">
-            <Link href="#projects" data-cursor-hover>View My Work</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full">
-            <Link href="#contact" data-cursor-hover>Get In Touch</Link>
-            </Button>
-        </motion.div>
-        <motion.div
-            className="absolute bottom-10"
-            initial={{ y: 0, opacity: 1 }}
-            animate={{ y: [0, -10, 0], opacity: [1, 0.5, 1] }}
+    <motion.section
+        id="home"
+        className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden text-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+    >
+      <motion.h1
+        className="text-5xl font-bold font-headline tracking-tight text-foreground md:text-7xl lg:text-8xl text-glow"
+        variants={itemVariants}
+      >
+        Hi, I&apos;m Amit
+      </motion.h1>
+      <motion.p
+        className="mt-4 max-w-2xl text-lg text-foreground/80 md:text-xl"
+        variants={itemVariants}
+      >
+        A creative developer turning ideas into beautiful and functional web experiences.
+      </motion.p>
+      <motion.div className="mt-8 flex gap-4" variants={itemVariants}>
+        <Button asChild size="lg" className="rounded-full">
+          <Link href="#projects" data-cursor-hover>View My Work</Link>
+        </Button>
+        <Button asChild size="lg" variant="outline" className="rounded-full">
+          <Link href="#contact" data-cursor-hover>Get In Touch</Link>
+        </Button>
+      </motion.div>
+      <motion.div
+        className="absolute bottom-10"
+        initial={{ y: 0, opacity: 1 }}
+        animate={{ y: [0, -10, 0], opacity: [1, 0.5, 1] }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: "loop",
+          ease: "easeInOut"
+        }}
+      >
+        <div className="h-8 w-5 rounded-full border-2 border-foreground">
+          <motion.div
+            className="mx-auto mt-2 h-2 w-2 rounded-full bg-foreground"
+            animate={{ y: [0, 8, 0] }}
             transition={{
-            duration: 1.5,
-            repeat: Infinity,
-            repeatType: "loop",
-            ease: "easeInOut"
+              duration: 1.5,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "easeInOut"
             }}
-        >
-            <div className="h-8 w-5 rounded-full border-2 border-foreground">
-            <motion.div
-                className="mx-auto mt-2 h-2 w-2 rounded-full bg-foreground"
-                animate={{ y: [0, 8, 0] }}
-                transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "easeInOut"
-                }}
-            />
-            </div>
-        </motion.div>
-        </motion.section>
-    </AuroraBackground>
+          />
+        </div>
+      </motion.div>
+    </motion.section>
   );
 }

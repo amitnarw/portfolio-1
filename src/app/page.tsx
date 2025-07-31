@@ -29,7 +29,7 @@ export default function Home() {
       {isLoading ? (
         <LoadingAnimation />
       ) : (
-        <>
+        <div className="relative z-10">
           <Header />
           <main className="flex flex-col items-center justify-center">
             <HeroSection />
@@ -39,7 +39,7 @@ export default function Home() {
             <ContactSection />
           </main>
           <Footer />
-        </>
+        </div>
       )}
     </AnimatePresence>
   );
