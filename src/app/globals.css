@@ -97,9 +97,6 @@
     .glass-card {
         @apply border border-white/10 bg-card/75 backdrop-blur-lg;
     }
-    .neon-glow {
-        box-shadow: 0 0 5px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
-    }
     .text-glow {
         text-shadow: 0 0 8px hsl(var(--primary) / 0.7);
     }

@@ -19,7 +19,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project, onOpen }: ProjectCardProps) {
   return (
     <motion.div
-      className="group relative h-80 w-full cursor-pointer overflow-hidden rounded-lg shadow-lg glass-card neon-glow"
+      className="group relative h-80 w-full cursor-pointer overflow-hidden rounded-lg shadow-lg glass-card"
       onClick={onOpen}
       data-cursor-hover
       whileHover={{ scale: 1.02 }}
