@@ -103,7 +103,7 @@ export function ProjectsSection() {
         ref={containerRef}
         className="container mx-auto max-w-7xl py-20 md:py-32"
       >
-        <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-primary md:text-5xl">My Work</h2>
+        <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-primary md:text-5xl text-glow">My Work</h2>
         <div ref={gridRef} className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {projects.map((project) => (
             <div key={project.title} className="project-card-wrapper">
@@ -114,7 +114,7 @@ export function ProjectsSection() {
       </section>
 
       <Dialog open={!!selectedProject} onOpenChange={(isOpen) => !isOpen && setSelectedProject(null)}>
-        <DialogContent className="max-w-3xl">
+        <DialogContent className="max-w-3xl glass-card">
           {selectedProject && (
             <>
               <DialogHeader>
@@ -128,16 +128,16 @@ export function ProjectsSection() {
               </DialogDescription>
               <div className="aspect-video w-full overflow-hidden rounded-lg border">
                 <Image
-                  src={selected.image}
-                  alt={selected.title}
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
                   width={1200}
                   height={675}
-                  data-ai-hint={selected.hint}
+                  data-ai-hint={selectedProject.hint}
                   className="h-full w-full object-cover"
                 />
               </div>
               <Button asChild className="w-fit">
-                <Link href={selected.liveUrl} target="_blank" rel="noopener noreferrer" data-cursor-hover>
+                <Link href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer" data-cursor-hover>
                   View Live Site <ArrowUpRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

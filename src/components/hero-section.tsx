@@ -30,7 +30,7 @@ export function HeroSection() {
         >
         
         <motion.h1 
-            className="text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl"
+            className="text-5xl font-bold tracking-tight text-foreground md:text-7xl lg:text-8xl text-glow"
             variants={itemVariants}
         >
             Hi, I&apos;m Amit
