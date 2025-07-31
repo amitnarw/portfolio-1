@@ -38,7 +38,8 @@ export const Background = () => {
         'dark:before:bg-[radial-gradient(circle_at_var(--x)_var(--y),_hsl(var(--primary)/0.2)_0,_transparent_30vw)]',
         'after:content-[""] after:fixed after:inset-0 after:z-[-2]',
         'after:bg-gradient-to-br after:from-primary/10 after:to-accent/10 dark:after:from-primary/5 dark:after:to-accent/5',
-        'after:animate-[gradient_10s_ease_infinite]',
+        'after:animate-[gradient_15s_ease_infinite]',
+        'noise-overlay'
       )}
       style={{
         backgroundSize: '400% 400%',
