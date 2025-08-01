@@ -28,10 +28,12 @@ export default function Home() {
 
 
   return (
-    <AnimatePresence mode="wait">
-      {loading ? (
-        <LoadingAnimation />
-      ) : (
+    <>
+      <AnimatePresence mode="wait">
+        {loading && <LoadingAnimation />}
+      </AnimatePresence>
+      
+      {!loading && (
         <motion.div 
           className="relative z-10"
           initial={{ opacity: 0 }}
@@ -50,6 +52,6 @@ export default function Home() {
           <Footer />
         </motion.div>
       )}
-    </AnimatePresence>
+    </>
   );
 }
