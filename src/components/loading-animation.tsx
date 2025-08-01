@@ -36,12 +36,16 @@ const letterVariants = {
 
 const text = "WELCOME";
 
+const lightPaperTexture = 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'4\' height=\'4\' viewBox=\'0 0 4 4\'%3E%3Cpath fill=\'%239C92AC\' fill-opacity=\'0.05\' d=\'M1 3h1v1H1V3zm2-2h1v1H3V1z\'%3E%3C/path%3E%3C/svg%3E")';
+const darkPaperTexture = 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'8\' height=\'8\' viewBox=\'0 0 8 8\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath fill-rule=\'evenodd\' d=\'M0 0h4v4H0V0zm4 4h4v4H4V4z\'/%3E%3C/g%3E%3C/svg%3E")';
+
+
 export function LoadingAnimation() {
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#f4f2ed]"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#f4f2ed] dark:bg-[#1a1a1a]"
       style={{
-        backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'4\' height=\'4\' viewBox=\'0 0 4 4\'%3E%3Cpath fill=\'%239C92AC\' fill-opacity=\'0.05\' d=\'M1 3h1v1H1V3zm2-2h1v1H3V1z\'%3E%3C/path%3E%3C/svg%3E")',
+        backgroundImage: lightPaperTexture,
       }}
       key="loader"
       variants={containerVariants}
@@ -49,8 +53,10 @@ export function LoadingAnimation() {
       animate="visible"
       exit="exit"
     >
+        <div className="dark:hidden" style={{ backgroundImage: lightPaperTexture }} />
+        <div className="hidden dark:block" style={{ backgroundImage: darkPaperTexture }} />
       <motion.div
-        className="flex overflow-hidden text-5xl font-bold font-headline tracking-widest text-stone-800"
+        className="flex overflow-hidden text-5xl font-bold font-headline tracking-widest text-stone-800 dark:text-stone-200"
         aria-label={text}
       >
         {text.split("").map((letter, index) => (
