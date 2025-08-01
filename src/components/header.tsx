@@ -6,6 +6,8 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { useActiveSection } from '@/hooks/use-active-section';
 import { cn } from '@/lib/utils';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 
 const navItems = [
   { name: 'About', href: '#about' },
@@ -17,6 +19,9 @@ const navItems = [
 export function Header() {
   const activeSection = useActiveSection(['about', 'projects', 'skills', 'testimonials', 'contact']);
   const activePrimaryBg = 'bg-primary text-primary-foreground hover:bg-primary/90';
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
     <motion.header
@@ -49,9 +54,10 @@ export function Header() {
           ))}
           <Button
             asChild
+            variant="ghost"
             className={cn(
               'rounded-full',
-              activeSection === 'contact' && 'bg-primary text-primary-foreground hover:bg-primary/90'
+              activeSection === 'contact' && activePrimaryBg
             )}
           >
             <Link href="#contact" data-cursor-hover>
@@ -61,8 +67,47 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <ThemeToggle />
+          <div className="md:hidden">
+            <Button onClick={toggleMobileMenu} variant="ghost" size="icon">
+              {mobileMenuOpen ? <X /> : <Menu />}
+            </Button>
+          </div>
         </div>
       </div>
+      {mobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          className="md:hidden glass-card mx-4 rounded-lg border p-4"
+        >
+          <nav className="flex flex-col gap-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                    'text-lg',
+                    activeSection === item.href.substring(1) ? 'text-primary font-semibold' : 'text-foreground/80'
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Link
+                href="#contact"
+                className={cn(
+                    'text-lg',
+                    activeSection === 'contact' ? 'text-primary font-semibold' : 'text-foreground/80'
+                )}
+                onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
+          </nav>
+        </motion.div>
+      )}
     </motion.header>
   );
 }
