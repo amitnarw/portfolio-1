@@ -8,7 +8,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3,
+      staggerChildren: 0.15,
       delayChildren: 0.2,
     },
   },
@@ -34,7 +34,7 @@ const letterVariants = {
   },
 };
 
-const text = "AURA";
+const text = "WELCOME";
 
 export function LoadingAnimation() {
   return (

@@ -10,7 +10,7 @@ import { TestimonialsSection } from '@/components/testimonials-section';
 import { ContactSection } from '@/components/contact-section';
 import { Footer } from '@/components/footer';
 import { useEffect, useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { LoadingAnimation } from '@/components/loading-animation';
 
 export default function Home() {
@@ -21,18 +21,23 @@ export default function Home() {
       setLoading(false);
       document.body.style.cursor = 'default';
       window.scrollTo(0, 0);
-    }, 2500); // Increased duration for the new animation
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
 
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {loading ? (
         <LoadingAnimation />
       ) : (
-        <div className="relative z-10">
+        <motion.div 
+          className="relative z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
+        >
           <Header />
           <main className="flex flex-col items-center justify-center">
             <HeroSection />
@@ -43,7 +48,7 @@ export default function Home() {
             <ContactSection />
           </main>
           <Footer />
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );
