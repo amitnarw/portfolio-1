@@ -1,3 +1,4 @@
+
 'use client';
 
 import { motion } from 'framer-motion';
@@ -18,7 +19,6 @@ const navItems = [
 
 export function Header() {
   const activeSection = useActiveSection(['about', 'projects', 'skills', 'testimonials', 'contact']);
-  const activePrimaryBg = 'bg-primary text-primary-foreground hover:bg-primary/90';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
@@ -44,7 +44,7 @@ export function Header() {
               variant="ghost"
               className={cn(
                 'rounded-full',
-                activeSection === item.href.substring(1) && activePrimaryBg
+                activeSection === item.href.substring(1) && 'bg-primary text-primary-foreground hover:bg-primary/90'
               )}
             >
               <Link href={item.href} data-cursor-hover>
@@ -52,14 +52,7 @@ export function Header() {
               </Link>
             </Button>
           ))}
-          <Button
-            asChild
-            variant="ghost"
-            className={cn(
-              'rounded-full',
-              activeSection === 'contact' && activePrimaryBg
-            )}
-          >
+          <Button asChild variant="ghost" className="rounded-full">
             <Link href="#contact" data-cursor-hover>
               Contact
             </Link>
@@ -79,7 +72,7 @@ export function Header() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden glass-card mx-4 rounded-lg border p-4"
+          className="md:hidden bg-card mx-4 rounded-lg border p-4 shadow-lg"
         >
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
