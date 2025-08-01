@@ -21,7 +21,7 @@ export default function Home() {
       setLoading(false);
       document.body.style.cursor = 'default';
       window.scrollTo(0, 0);
-    }, 2000);
+    }, 2500); // Increased duration for the new animation
 
     return () => clearTimeout(timer);
   }, []);

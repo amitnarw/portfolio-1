@@ -3,67 +3,63 @@
 
 import { motion } from 'framer-motion';
 
-const loadingContainerVariants = {
-  start: {
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
     },
   },
-  end: {
+  exit: {
+    opacity: 0,
     transition: {
-      staggerChildren: 0.2,
+      duration: 0.5,
+      ease: 'easeInOut',
     },
   },
 };
 
-const loadingCircleVariants = {
-  start: {
-    y: "50%",
-  },
-  end: {
-    y: "150%",
+const letterVariants = {
+  hidden: { y: 40, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      damping: 12,
+      stiffness: 100,
+    },
   },
 };
 
-const loadingCircleTransition = {
-  duration: 0.5,
-  repeat: Infinity,
-  ease: "easeInOut",
-  repeatType: 'reverse' as const,
-};
+const text = "AURA";
 
 export function LoadingAnimation() {
   return (
     <motion.div
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-background"
       key="loader"
-      exit={{ opacity: 0, transition: { duration: 0.5 } }}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
     >
-      <div className="flex items-center">
-        <span className="text-2xl font-headline text-foreground/80">Loading</span>
-        <motion.div
-          className="ml-2 flex h-6 w-10 justify-around"
-          variants={loadingContainerVariants}
-          initial="start"
-          animate="end"
-        >
+      <motion.div
+        className="flex overflow-hidden text-5xl font-bold font-headline tracking-widest text-foreground"
+        aria-label={text}
+      >
+        {text.split("").map((letter, index) => (
           <motion.span
-            className="block h-2 w-2 rounded-full bg-primary"
-            variants={loadingCircleVariants}
-            transition={loadingCircleTransition}
-          />
-          <motion.span
-            className="block h-2 w-2 rounded-full bg-primary"
-            variants={loadingCircleVariants}
-            transition={loadingCircleTransition}
-          />
-          <motion.span
-            className="block h-2 w-2 rounded-full bg-primary"
-            variants={loadingCircleVariants}
-            transition={loadingCircleTransition}
-          />
-        </motion.div>
-      </div>
+            key={index}
+            variants={letterVariants}
+            className="inline-block"
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </motion.div>
     </motion.div>
   );
 }
