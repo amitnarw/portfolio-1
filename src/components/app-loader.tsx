@@ -3,26 +3,12 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const letterVariants = (i: number) => ({
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-        y: 0,
-        opacity: 1,
-        transition: {
-            delay: i * 0.05,
-            duration: 0.5,
-            ease: "easeOut",
-        },
-    },
-});
+const welcomeMessages = ["Hello", "Bonjour", "Hola", "Ciao", "Olá", "Namaste", "Konnichiwa"];
 
 const progressVariants = {
     initial: { width: '0%' },
     enter: { width: '100%', transition: { duration: 1.8, ease: "easeOut" } }
 };
-
-
-const welcomeMessages = ["Hello", "Bonjour", "Hola", "Ciao", "Olá", "Namaste", "Konnichiwa"];
 
 export function AppLoader() {
   const [index, setIndex] = useState(0);
@@ -35,7 +21,6 @@ export function AppLoader() {
     return () => clearInterval(interval);
   }, []);
   
-  const text = "AURA";
   return (
     <motion.div
       className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background"
@@ -44,15 +29,9 @@ export function AppLoader() {
       animate="visible"
       exit={{opacity: 0, transition: {duration: 0.5}}}
     >
-      <motion.div className="flex text-8xl font-bold tracking-widest text-primary mb-8" aria-hidden>
-        {text.split("").map((letter, i) => (
-            <motion.span key={i} variants={letterVariants(i)}>
-                {letter}
-            </motion.span>
-        ))}
-      </motion.div>
-
-      <div className="absolute bottom-1/4 w-48 overflow-hidden font-headline">
+        <motion.h1 className="sr-only">Aura Portfolio</motion.h1>
+      
+      <div className="w-48 overflow-hidden font-headline">
         <AnimatePresence mode="wait">
             <motion.div
                 key={welcomeMessages[index]}

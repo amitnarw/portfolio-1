@@ -11,10 +11,11 @@ const navItems = [
   { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
+  { name: 'Testimonials', href: '#testimonials' },
 ];
 
 export function Header() {
-  const activeSection = useActiveSection(['about', 'projects', 'skills', 'contact']);
+  const activeSection = useActiveSection(['about', 'projects', 'skills', 'testimonials', 'contact']);
   const activePrimaryBg = 'bg-primary text-primary-foreground hover:bg-primary/90';
 
   return (
