@@ -39,7 +39,10 @@ const text = "WELCOME";
 export function LoadingAnimation() {
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[hsl(240_10%_3.9%)]"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#f4f2ed]"
+      style={{
+        backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'4\' height=\'4\' viewBox=\'0 0 4 4\'%3E%3Cpath fill=\'%239C92AC\' fill-opacity=\'0.05\' d=\'M1 3h1v1H1V3zm2-2h1v1H3V1z\'%3E%3C/path%3E%3C/svg%3E")',
+      }}
       key="loader"
       variants={containerVariants}
       initial="hidden"
@@ -47,7 +50,7 @@ export function LoadingAnimation() {
       exit="exit"
     >
       <motion.div
-        className="flex overflow-hidden text-5xl font-bold font-headline tracking-widest text-foreground"
+        className="flex overflow-hidden text-5xl font-bold font-headline tracking-widest text-stone-800"
         aria-label={text}
       >
         {text.split("").map((letter, index) => (
