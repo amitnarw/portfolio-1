@@ -15,6 +15,7 @@ const navItems = [
 
 export function Header() {
   const activeSection = useActiveSection(['about', 'projects', 'skills', 'contact']);
+  const activePrimaryBg = 'bg-primary text-primary-foreground hover:bg-primary/90';
 
   return (
     <motion.header
@@ -37,7 +38,7 @@ export function Header() {
               variant="ghost"
               className={cn(
                 'rounded-full',
-                activeSection === item.href.substring(1) && 'bg-secondary text-secondary-foreground'
+                activeSection === item.href.substring(1) && activePrimaryBg
               )}
             >
               <Link href={item.href} data-cursor-hover>
@@ -50,7 +51,7 @@ export function Header() {
             variant="ghost"
             className={cn(
               'rounded-full',
-              activeSection === 'contact' && 'bg-primary text-primary-foreground hover:bg-primary/90'
+              activeSection === 'contact' && activePrimaryBg
             )}
           >
             <Link href="#contact" data-cursor-hover>
