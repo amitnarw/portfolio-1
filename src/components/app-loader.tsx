@@ -3,17 +3,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
-
 const letterVariants = (i: number) => ({
     hidden: { y: 50, opacity: 0 },
     visible: {
@@ -29,7 +18,7 @@ const letterVariants = (i: number) => ({
 
 const progressVariants = {
     initial: { width: '0%' },
-    enter: { width: '100%', transition: { duration: 2, ease: "easeOut" } }
+    enter: { width: '100%', transition: { duration: 1.8, ease: "easeOut" } }
 };
 
 
@@ -41,7 +30,7 @@ export function AppLoader() {
   useEffect(() => {
     const interval = setInterval(() => {
         setIndex((prevIndex) => (prevIndex + 1) % welcomeMessages.length);
-    }, 400);
+    }, 250);
 
     return () => clearInterval(interval);
   }, []);

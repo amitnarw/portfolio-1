@@ -24,12 +24,13 @@ export function AboutSection() {
             },
         });
 
-        // Animate text word by word
         if (textContentRef.current) {
             const heading = textContentRef.current.querySelector('h2');
             const paragraphs = textContentRef.current.querySelectorAll('p');
             
             if (heading) {
+                const words = heading.innerText.split(' ').map(word => `<span class="inline-block">${word}</span>`).join('&nbsp;');
+                heading.innerHTML = words;
                  tl.from(heading.querySelectorAll('span'), {
                     y: 50,
                     opacity: 0,
@@ -40,7 +41,7 @@ export function AboutSection() {
             }
             
             paragraphs.forEach(p => {
-                const words = p.innerText.split(' ').map(word => `<span>${word}</span>`).join(' ');
+                const words = p.innerText.split(' ').map(word => `<span class="inline-block">${word}</span>`).join(' ');
                 p.innerHTML = words;
                 tl.from(p.querySelectorAll('span'), {
                     y: 30,
@@ -52,7 +53,6 @@ export function AboutSection() {
             });
         }
 
-        // Parallax for image
         if (imageRef.current) {
             gsap.to(imageRef.current, {
                 y: -50,
@@ -70,9 +70,6 @@ export function AboutSection() {
     return () => ctx.revert();
   }, []);
 
-  // Simple split for initial render
-  const headingWords = "About Me".split(' ').map(word => `<span class="inline-block">${word}</span>`).join('&nbsp;');
-
   return (
     <motion.section
       id="about"
@@ -81,7 +78,7 @@ export function AboutSection() {
     >
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-3">
             <div className="md:col-span-2" ref={textContentRef}>
-                <h2 className="mb-8 text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text" dangerouslySetInnerHTML={{ __html: headingWords }} />
+                <h2 className="mb-8 text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text">About Me</h2>
                 <div className="space-y-4 text-lg text-foreground/80">
                   <p>
                   I'm a passionate and self-taught developer with a love for creating beautiful, intuitive, and high-performance web applications. My journey into code started with a simple curiosity and has grown into a full-fledged obsession with building things for the web.

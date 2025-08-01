@@ -20,7 +20,7 @@ export function Header() {
     <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, delay: 2.8, ease: 'easeOut' }}
+      transition={{ duration: 0.5, delay: 2.0, ease: 'easeOut' }}
       className="fixed top-0 left-0 z-50 w-full"
     >
       <div className="container mx-auto flex max-w-7xl items-center justify-between p-4">

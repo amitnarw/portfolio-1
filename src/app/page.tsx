@@ -19,7 +19,7 @@ export default function Home() {
       setIsLoading(false);
       document.body.style.cursor = 'default';
       window.scrollTo(0, 0);
-    }, 2800);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
