@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
+import { useActiveSection } from '@/hooks/use-active-section';
+import { cn } from '@/lib/utils';
 
 const navItems = [
   { name: 'About', href: '#about' },
@@ -12,6 +14,8 @@ const navItems = [
 ];
 
 export function Header() {
+  const activeSection = useActiveSection(['about', 'projects', 'skills', 'contact']);
+
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
@@ -27,16 +31,34 @@ export function Header() {
         </Link>
         <nav className="hidden items-center gap-2 rounded-full border border-border/50 bg-background/50 p-1 backdrop-blur-sm md:flex">
           {navItems.map((item) => (
-            <Button key={item.name} asChild variant="ghost" className="rounded-full">
-              <Link href={item.href} data-cursor-hover>{item.name}</Link>
+            <Button
+              key={item.name}
+              asChild
+              variant="ghost"
+              className={cn(
+                'rounded-full',
+                activeSection === item.href.substring(1) && 'bg-secondary text-secondary-foreground'
+              )}
+            >
+              <Link href={item.href} data-cursor-hover>
+                {item.name}
+              </Link>
             </Button>
           ))}
-          <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-             <Link href="#contact" data-cursor-hover>Contact</Link>
+          <Button
+            asChild
+            className={cn(
+              'rounded-full bg-primary text-primary-foreground hover:bg-primary/90',
+              activeSection === 'contact' && 'bg-primary/80 ring-2 ring-primary'
+            )}
+          >
+            <Link href="#contact" data-cursor-hover>
+              Contact
+            </Link>
           </Button>
         </nav>
         <div className="flex items-center gap-2">
-            <ThemeToggle />
+          <ThemeToggle />
         </div>
       </div>
     </motion.header>
