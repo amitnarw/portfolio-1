@@ -34,8 +34,8 @@ export const Background = () => {
         '[--x:50%] [--y:50%]',
         'bg-background',
         'before:content-[""] before:fixed before:inset-0 before:z-[-1]',
-        'before:bg-[radial-gradient(circle_at_var(--x)_var(--y),_hsl(var(--primary)/0.8)_0,_transparent_35vw)]',
-        'dark:before:bg-[radial-gradient(circle_at_var(--x)_var(--y),_hsl(var(--primary)/0.6)_0,_transparent_30vw)]'
+        'before:bg-[radial-gradient(circle_at_var(--x)_var(--y),_hsl(var(--primary)/0.2)_0,_transparent_35vw)]',
+        'dark:before:bg-[radial-gradient(circle_at_var(--x)_var(--y),_hsl(var(--primary)/0.15)_0,_transparent_30vw)]'
       )}
     />
   );

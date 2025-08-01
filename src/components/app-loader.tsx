@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const containerVariants = {
@@ -41,7 +41,7 @@ export function AppLoader() {
   useEffect(() => {
     const interval = setInterval(() => {
         setIndex((prevIndex) => (prevIndex + 1) % welcomeMessages.length);
-    }, 250);
+    }, 400);
 
     return () => clearInterval(interval);
   }, []);
@@ -55,7 +55,7 @@ export function AppLoader() {
       animate="visible"
       exit={{opacity: 0, transition: {duration: 0.5}}}
     >
-      <motion.div className="flex text-6xl font-bold tracking-widest text-primary mb-8" aria-hidden>
+      <motion.div className="flex text-8xl font-bold tracking-widest text-primary mb-8" aria-hidden>
         {text.split("").map((letter, i) => (
             <motion.span key={i} variants={letterVariants(i)}>
                 {letter}

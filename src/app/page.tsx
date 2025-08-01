@@ -9,7 +9,7 @@ import { ProjectsSection } from '@/components/projects-section';
 import { SkillsSection } from '@/components/skills-section';
 import { ContactSection } from '@/components/contact-section';
 import { Footer } from '@/components/footer';
-import { LoadingAnimation } from '@/components/loading-animation';
+import { AppLoader } from '@/components/app-loader';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <AnimatePresence mode="wait">
       {isLoading ? (
-        <LoadingAnimation />
+        <AppLoader />
       ) : (
         <div className="relative z-10">
           <Header />
