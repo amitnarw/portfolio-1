@@ -47,9 +47,10 @@ export function Header() {
           ))}
           <Button
             asChild
+            variant="ghost"
             className={cn(
-              'rounded-full bg-primary text-primary-foreground hover:bg-primary/90',
-              activeSection === 'contact' && 'bg-primary/80 ring-2 ring-primary'
+              'rounded-full',
+              activeSection === 'contact' && 'bg-primary text-primary-foreground hover:bg-primary/90'
             )}
           >
             <Link href="#contact" data-cursor-hover>
