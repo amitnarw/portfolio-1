@@ -22,14 +22,14 @@ const letterVariants = (i: number) => ({
         transition: {
             delay: i * 0.05,
             duration: 0.5,
-            ease: [0.6, 0.05, -0.01, 0.9],
+            ease: [0.6, 0.01, -0.05, 0.95],
         },
     },
 });
 
 const progressVariants = {
     initial: { width: '0%' },
-    enter: { width: '100%', transition: { duration: 2, ease: [0.6, 0.05, -0.01, 0.9] } }
+    enter: { width: '100%', transition: { duration: 2, ease: "easeOut" } }
 };
 
 
