@@ -1,6 +1,7 @@
+
 'use client';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { TestimonialCard, type Testimonial } from './testimonial-card';
 import { Button } from './ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
