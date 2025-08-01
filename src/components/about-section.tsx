@@ -78,9 +78,9 @@ export function AboutSection() {
             </h2>
         </div>
         <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-24">
-            <div className="relative h-96 w-full justify-self-center md:h-[600px] md:w-full">
+            <div className="relative h-60 sm:h-[400px] w-full justify-self-center md:w-full">
                 <Image
-                    src="https://images.unsplash.com/photo-1603415526960-f7e0328f35a4?q=80&w=400&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop"
                     alt="A portrait of Amit"
                     width={800}
                     height={1200}
@@ -88,7 +88,7 @@ export function AboutSection() {
                     className="h-full w-full rounded-lg object-cover object-center"
                 />
             </div>
-            <div className="md:mt-16">
+            <div className='flex items-center justify-center h-full'>
                 <div className="space-y-6 text-lg text-foreground/80" ref={textContentRef}>
                   <p>
                     I'm a passionate and self-taught developer with a love for creating beautiful, intuitive, and high-performance web applications. My journey into code started with a simple curiosity and has grown into a full-fledged obsession with building things for the web.

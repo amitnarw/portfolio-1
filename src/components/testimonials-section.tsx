@@ -11,21 +11,21 @@ const testimonials: Testimonial[] = [
     quote: "Working with Amit was an absolute pleasure. Their attention to detail and creative problem-solving skills are second to none. They delivered a product that exceeded all our expectations.",
     name: "Jane Doe",
     title: "CEO, Innovate Inc.",
-    avatar: "https://images.unsplash.com/photo-1573496359112-58872a2a4DBc?q=80&w=200&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1569228887110-e63e589258d5?q=80&w=687&auto=format&fit=crop",
     hint: "woman portrait"
   },
   {
     quote: "The final result was stunning. Amit has a unique ability to translate complex ideas into a beautiful, functional, and user-friendly design. We couldn't be happier with the outcome.",
     name: "John Smith",
     title: "Marketing Director, Solutions Co.",
-    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1644180552242-f597c98ec82b?q=80&w=687&auto=format&fit=crop",
     hint: "man portrait"
   },
   {
     quote: "I was impressed by their professionalism and dedication. They were always available to answer questions and provide updates. I highly recommend their services to anyone looking for a top-tier developer.",
     name: "Samuel Green",
     title: "Founder, Tech startups",
-    avatar: "https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=200&auto=format&fit=crop",
+    avatar: "https://images.unsplash.com/photo-1595626259537-9510012e53ef?q=80&w=1170&auto=format&fit=crop",
     hint: "man portrait"
   },
 ];

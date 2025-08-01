@@ -37,7 +37,7 @@ const projects: Project[] = [
   {
     title: "Aether CMS",
     description: "A headless content management system offering a flexible GraphQL API and a powerful editor experience for developers and content creators alike.",
-    image: "https://images.unsplash.com/photo-1542314831-068cd1dbb563?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1560472355-a3b4bcfe790c?q=80&w=1170&auto=format&fit=crop",
     hint: "software interface",
     tags: ["SvelteKit", "GraphQL", "PostgreSQL", "Docker", "Auth.js"],
     liveUrl: "#",
@@ -45,7 +45,7 @@ const projects: Project[] = [
   {
     title: "Zenith Wallet",
     description: "A minimalist and secure crypto wallet for managing digital assets on the go. Supports multiple blockchains and includes biometric authentication.",
-    image: "https://images.unsplash.com/photo-1634424410915-a9b0a1a01538?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1556551999-7efff4f05f19?q=80&w=1170&auto=format&fit=crop",
     hint: "mobile app",
     tags: ["React Native", "Firebase", "ethers.js", "Solidity"],
     liveUrl: "#",
@@ -61,7 +61,7 @@ const projects: Project[] = [
   {
     title: "EcoTrack",
     description: "An application for tracking personal carbon footprint and promoting sustainable habits through gamification and community challenges.",
-    image: "https://images.unsplash.com/photo-1611270425838-6fe794628889?q=80&w=600&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?q=80&w=1170&auto=format&fit=crop",
     hint: "sustainability app",
     tags: ["Flutter", "Firebase", "Google Maps API"],
     liveUrl: "#",
