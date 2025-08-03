@@ -69,8 +69,8 @@ export function AchievementsSection() {
       className="container mx-auto max-w-7xl py-20 md:py-32"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8">
-        <div className="md:col-span-1 relative mb-12 md:mb-0">
-            <div className="md:sticky md:top-1/2 md:-translate-y-1/2 md:pr-8 text-center md:text-left">
+        <div className="md:col-span-1 relative mb-12 md:mb-0 text-center md:text-left">
+            <div className="md:sticky md:top-1/2 md:-translate-y-1/2 md:pr-8">
                 <h2 className="text-3xl font-bold font-headline tracking-tight md:text-4xl gradient-text">
                     Achievements
                 </h2>
@@ -87,7 +87,7 @@ export function AchievementsSection() {
               }}
             />
         </div>
-        <div className="space-y-4 md:col-span-2">
+        <div className="md:col-span-2 space-y-8">
           {achievements.map((item, index) => (
             <div 
               key={index} 

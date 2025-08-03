@@ -76,8 +76,8 @@ export function CertificationsSection() {
       className="container mx-auto max-w-7xl py-20 md:py-32"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8">
-        <div className="md:col-span-1 md:order-2 relative mb-12 md:mb-0">
-          <div className="md:sticky md:top-1/2 md:-translate-y-1/2 md:pl-8 text-center md:text-right">
+        <div className="md:col-span-1 md:order-2 relative mb-12 md:mb-0 text-center md:text-right">
+          <div className="md:sticky md:top-1/2 md:-translate-y-1/2 md:pl-8">
             <h2 className="text-3xl font-bold font-headline tracking-tight md:text-4xl gradient-text">
                 Certifications
             </h2>
@@ -94,7 +94,7 @@ export function CertificationsSection() {
               }}
             />
         </div>
-        <div className="space-y-4 md:col-span-2 md:order-1">
+        <div className="md:col-span-2 md:order-1 space-y-8">
           {certifications.map((item, index) => (
             <div
               key={index}
@@ -115,21 +115,19 @@ export function CertificationsSection() {
                 rel="noopener noreferrer"
                 data-cursor-hover
               >
-                <div className="flex h-full flex-col items-start gap-4 p-6 transition-all duration-300 md:flex-row">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-accent-foreground">
-                    <FileText className="h-6 w-6" />
+                <div className="flex h-full flex-col items-start gap-2 p-6 transition-all duration-300">
+                  <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                    <p className="text-sm font-medium text-foreground/60">
+                      {item.year}
+                    </p>
                   </div>
-                  <div className="flex-grow">
-                    <div className="flex flex-col items-start justify-between">
-                      <h3 className="text-xl font-bold font-headline text-foreground">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 flex-shrink-0 text-sm font-medium text-foreground/60">
-                        {item.year}
-                      </p>
-                    </div>
-                    <p className="mt-1 text-lg text-accent">{item.issuer}</p>
-                  </div>
+                  <h3 className="text-2xl font-bold font-headline text-accent">
+                    {item.issuer}
+                  </h3>
+                  <p className="mt-1 text-lg text-foreground">
+                    {item.title}
+                  </p>
                 </div>
               </Link>
             </div>
