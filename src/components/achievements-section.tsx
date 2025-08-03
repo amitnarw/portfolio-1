@@ -1,8 +1,13 @@
 
 'use client';
 
+import { useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Award } from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const achievements = [
   {
@@ -23,53 +28,82 @@ const achievements = [
     year: '2022',
     description: 'Honored for outstanding UI/UX design and implementation on "Aether CMS".',
   },
-    {
+  {
     title: 'Top Voted on Product Hunt',
     issuer: 'Product Hunt',
     year: '2021',
     description: 'Ranked #1 product of the day for the launch of the "Zenith Wallet" application.',
-    },
+  },
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-};
-
 export function AchievementsSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      if (headingRef.current) {
+        gsap.from(headingRef.current, {
+          y: 100,
+          opacity: 0,
+          duration: 1,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: 'top 90%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+      }
+
+      const achievementItems = gsap.utils.toArray<HTMLElement>('.achievement-item');
+      achievementItems.forEach((item) => {
+        gsap.from(item, {
+          y: 80,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+        
+        gsap.from(item.querySelector('.description'), {
+            opacity: 0.7,
+            duration: 0.5,
+            ease: 'sine.inOut',
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 70%',
+                end: 'bottom 70%',
+                scrub: true,
+            }
+        });
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <motion.section
       id="achievements"
+      ref={containerRef}
       className="container mx-auto max-w-7xl py-20 md:py-32"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={sectionVariants}
     >
-      <h2 className="mb-12 text-center text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text">
+      <h2
+        ref={headingRef}
+        className="mb-12 text-center text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text"
+      >
         Achievements & Awards
       </h2>
       <div className="mx-auto max-w-4xl">
         <div className="space-y-4">
           {achievements.map((item, index) => (
-            <motion.div
-              key={index}
-              className="group"
-              variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-            >
-              <div className="flex flex-col md:flex-row items-start gap-4 rounded-lg border border-transparent p-6 transition-all duration-300 group-hover:border-border/50 group-hover:bg-card/50">
+            <div key={index} className="achievement-item">
+              <div className="flex flex-col items-start gap-4 rounded-lg border border-transparent p-6 transition-all duration-300 hover:border-border/50 hover:bg-card/50 md:flex-row">
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                   <Award className="h-6 w-6" />
                 </div>
@@ -83,26 +117,12 @@ export function AchievementsSection() {
                     </p>
                   </div>
                   <p className="mt-1 text-lg text-primary">{item.issuer}</p>
-                   <motion.p 
-                        className="mt-3 text-base text-foreground/70 transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100"
-                        variants={{
-                        visible: {
-                            height: 'auto',
-                            opacity: 1,
-                            transition: { duration: 0.5, ease: 'easeOut' }
-                        },
-                        hidden: {
-                            height: 'auto',
-                            opacity: 0.7,
-                            transition: { duration: 0.5, ease: 'easeOut' }
-                        }
-                        }}
-                    >
+                  <p className="description mt-3 text-base text-foreground/70">
                     {item.description}
-                    </motion.p>
+                  </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
