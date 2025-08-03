@@ -8,18 +8,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const lineReveal = {
-    hidden: { y: '100%' },
-    visible: (i: number) => ({
-        y: '0%',
-        transition: {
-            delay: i * 0.1,
-            duration: 0.8,
-            ease: [0.6, 0.01, -0.05, 0.95],
-        },
-    }),
-};
-
 export function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const textContentRef = useRef<HTMLDivElement>(null);
@@ -44,14 +32,12 @@ export function AboutSection() {
                 });
             }
             
-            paragraphs.forEach((p, index) => {
-                const lines = p.innerText.split('\n').map(line => `<div class="overflow-hidden"><div class="line">${line.trim()}</div></div>`).join('');
-                p.innerHTML = lines;
-                gsap.from(p.querySelectorAll('.line'), {
-                    yPercent: 100,
+            paragraphs.forEach((p) => {
+                gsap.from(p, {
+                    y: 50,
                     opacity: 0,
-                    stagger: 0.1,
-                    duration: 0.8,
+                    duration: 1,
+                    stagger: 0.2,
                     ease: 'power3.out',
                     scrollTrigger: {
                         trigger: p,
@@ -77,8 +63,8 @@ export function AboutSection() {
                 About Me
             </h2>
         </div>
-        <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-2 md:gap-24">
-            <div className="relative h-60 sm:h-[400px] w-full justify-self-center md:w-full">
+        <div className="relative flex items-center justify-center">
+            <div className="relative h-[400px] w-full max-w-4xl sm:h-[500px] md:h-[600px]">
                 <Image
                     src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop"
                     alt="A portrait of Amit"
@@ -88,13 +74,13 @@ export function AboutSection() {
                     className="h-full w-full rounded-lg object-cover object-center"
                 />
             </div>
-            <div className='flex items-center justify-center h-full'>
-                <div className="space-y-6 text-lg text-foreground/80" ref={textContentRef}>
+            <div className='absolute -bottom-16 md:-right-16 md:bottom-auto w-full md:w-1/2 p-8'>
+                <div className="space-y-6 rounded-lg bg-card/80 p-6 text-xl text-foreground/90 backdrop-blur-md" ref={textContentRef}>
                   <p>
-                    I'm a passionate and self-taught developer with a love for creating beautiful, intuitive, and high-performance web applications. My journey into code started with a simple curiosity and has grown into a full-fledged obsession with building things for the web.
+                    I'm a passionate and self-taught developer with a love for creating beautiful, intuitive, and high-performance web applications.
                   </p>
                   <p>
-                    With a strong foundation in React, Next.js, and modern JavaScript, I enjoy tackling complex problems and turning them into elegant solutions. When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or brewing the perfect cup of coffee.
+                    My journey into code started with a simple curiosity and has grown into a full-fledged obsession with building things for the web.
                   </p>
                 </div>
             </div>
