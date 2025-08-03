@@ -67,11 +67,11 @@ export function FaqSection() {
         <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <AccordionItem value={`item-${index}`} className='border rounded-lg px-6 bg-card/50 transition-colors hover:bg-card/75'>
-                <AccordionTrigger className='text-left font-semibold text-lg hover:no-underline'>
+              <AccordionItem value={`item-${index}`} className='border-b border-border/50 transition-colors hover:bg-card/20'>
+                <AccordionTrigger className='text-left font-semibold text-lg py-6 hover:no-underline'>
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className='text-base text-foreground/70'>
+                <AccordionContent className='pb-6 text-base text-foreground/70'>
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
