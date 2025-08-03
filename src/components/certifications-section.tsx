@@ -94,7 +94,7 @@ export function CertificationsSection() {
               }}
             />
         </div>
-        <div className="md:col-span-2 md:order-1 space-y-8">
+        <div className="md:col-span-2 md:order-1 space-y-16">
           {certifications.map((item, index) => (
             <div
               key={index}

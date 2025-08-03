@@ -86,7 +86,7 @@ export function AchievementsSection() {
               }}
             />
         </div>
-        <div className="md:col-span-2 space-y-12">
+        <div className="md:col-span-2 space-y-16">
           {achievements.map((item, index) => (
             <div 
               key={index} 
