@@ -14,6 +14,9 @@ import { Footer } from '@/components/footer';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { LoadingAnimation } from '@/components/loading-animation';
+import { AchievementsSection } from '@/components/achievements-section';
+import { CertificationsSection } from '@/components/certifications-section';
+import { FaqSection } from '@/components/faq-section';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -47,10 +50,13 @@ export default function Home() {
             <HeroSection />
             <AboutSection />
             <ExperienceSection />
-            <EducationSection />
             <ProjectsSection />
             <SkillsSection />
+            <AchievementsSection />
+            <CertificationsSection />
+            <EducationSection />
             <TestimonialsSection />
+            <FaqSection />
             <ContactSection />
           </main>
           <Footer />

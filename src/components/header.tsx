@@ -13,10 +13,13 @@ import { useState } from "react";
 const navItems = [
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
-  { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
+  { name: "Achievements", href: "#achievements" },
+  { name: "Certifications", href: "#certifications" },
+  { name: "Education", href: "#education" },
   { name: "Testimonials", href: "#testimonials" },
+  { name: "FAQ", href: "#faq" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -24,10 +27,13 @@ export function Header() {
   const activeSection = useActiveSection([
     "about",
     "experience",
-    "education",
     "projects",
     "skills",
+    "achievements",
+    "certifications",
+    "education",
     "testimonials",
+    "faq",
     "contact",
   ]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -50,12 +56,13 @@ export function Header() {
             </span>
           </div>
         </Link>
-        <nav className="hidden items-center gap-2 rounded-full border border-border/50 bg-background/50 p-1 backdrop-blur-sm md:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-border/50 bg-background/50 p-1 backdrop-blur-sm md:flex">
           {navItems.map((item) => (
             <Button
               key={item.name}
               asChild
               variant="ghost"
+              size="sm"
               className={cn(
                 "rounded-full",
                 activeSection === item.href.substring(1) &&
