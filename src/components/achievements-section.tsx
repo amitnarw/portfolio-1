@@ -81,7 +81,7 @@ export function AchievementsSection() {
             <div 
               className="absolute right-0 top-0 hidden h-full w-px md:block"
               style={{
-                backgroundImage: 'linear-gradient(to bottom, hsl(var(--foreground)/0.8) 40%, transparent 40%)',
+                backgroundImage: 'linear-gradient(to bottom, hsl(var(--foreground)/0.6) 40%, transparent 40%)',
                 backgroundSize: '1px 10px',
                 backgroundRepeat: 'repeat-y'
               }}
@@ -92,7 +92,7 @@ export function AchievementsSection() {
             <div 
               key={index} 
               ref={el => itemsRef.current[index] = el}
-              className="achievement-item group border-b border-dotted border-foreground/20 last:border-b-0"
+              className="achievement-item group border-b border-dotted border-foreground/80 last:border-b-0"
             >
               <div className="flex flex-col items-start gap-4 p-6 transition-all duration-300 md:flex-row">
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
