@@ -3,7 +3,6 @@
 
 import { useLayoutEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Award } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -87,7 +86,7 @@ export function AchievementsSection() {
               }}
             />
         </div>
-        <div className="md:col-span-2 space-y-8">
+        <div className="md:col-span-2 space-y-12">
           {achievements.map((item, index) => (
             <div 
               key={index} 
@@ -102,24 +101,20 @@ export function AchievementsSection() {
                   backgroundRepeat: 'repeat-x'
                 }}
               />
-              <div className="flex flex-col items-start gap-4 p-6 transition-all duration-300 md:flex-row">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                  <Award className="h-6 w-6" />
-                </div>
-                <div className="flex-grow">
-                  <div className="flex flex-col items-start justify-between md:flex-row">
-                    <h3 className="text-xl font-bold font-headline text-foreground">
-                      {item.title}
-                    </h3>
-                    <p className="flex-shrink-0 text-sm font-medium text-foreground/60 md:mt-1">
+              <div className="flex flex-col items-start gap-2 p-6 transition-all duration-300">
+                <div className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                    <p className="text-sm font-medium text-foreground/60">
                       {item.year}
                     </p>
-                  </div>
-                  <p className="mt-1 text-lg text-primary">{item.issuer}</p>
-                  <p className="description mt-3 text-base text-foreground/70">
-                    {item.description}
-                  </p>
                 </div>
+                <h3 className="text-xl font-bold font-headline text-foreground">
+                  {item.title}
+                </h3>
+                <p className="mt-1 text-2xl text-primary">{item.issuer}</p>
+                <p className="description mt-3 text-base text-foreground/70">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}
