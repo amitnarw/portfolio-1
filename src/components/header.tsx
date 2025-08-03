@@ -12,6 +12,7 @@ import { useState } from "react";
 
 const navItems = [
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
@@ -22,6 +23,7 @@ const navItems = [
 export function Header() {
   const activeSection = useActiveSection([
     "about",
+    "experience",
     "education",
     "projects",
     "skills",
@@ -89,10 +91,9 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   "text-lg",
-                  activeSection === item.href.substring(1) && item.name !== 'Contact'
+                  activeSection === item.href.substring(1)
                     ? "text-primary font-semibold"
                     : "text-foreground/80",
-                   activeSection === 'contact' && item.name === 'Contact' ? "text-primary font-semibold" : ""
                 )}
                 onClick={() => setMobileMenuOpen(false)}
               >
