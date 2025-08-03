@@ -38,49 +38,24 @@ const achievements = [
 
 export function AchievementsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      if (headingRef.current) {
-        gsap.from(headingRef.current, {
-          y: 100,
-          opacity: 0,
-          duration: 1,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse',
-          },
-        });
-      }
-
-      const achievementItems = gsap.utils.toArray<HTMLElement>('.achievement-item');
-      achievementItems.forEach((item) => {
-        gsap.from(item, {
-          y: 80,
-          opacity: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
-          },
-        });
-        
-        gsap.from(item.querySelector('.description'), {
-            opacity: 0.7,
-            duration: 0.5,
-            ease: 'sine.inOut',
+      itemsRef.current.forEach((item) => {
+        if (item) {
+          gsap.from(item, {
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            ease: 'power3.out',
             scrollTrigger: {
-                trigger: item,
-                start: 'top 70%',
-                end: 'bottom 70%',
-                scrub: true,
+              trigger: item,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
             }
-        });
+          });
+        }
       });
     }, containerRef);
 
@@ -93,16 +68,19 @@ export function AchievementsSection() {
       ref={containerRef}
       className="container mx-auto max-w-7xl py-20 md:py-32"
     >
-      <h2
-        ref={headingRef}
-        className="mb-12 text-center text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text"
-      >
-        Achievements & Awards
-      </h2>
-      <div className="mx-auto max-w-4xl">
-        <div className="space-y-4">
+      <div className="grid grid-cols-1 gap-16 md:grid-cols-3">
+        <div className="md:col-span-1">
+          <h2 className="sticky top-24 text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text">
+            Achievements & Awards
+          </h2>
+        </div>
+        <div className="space-y-4 md:col-span-2">
           {achievements.map((item, index) => (
-            <div key={index} className="achievement-item">
+            <div 
+              key={index} 
+              ref={el => itemsRef.current[index] = el}
+              className="achievement-item group"
+            >
               <div className="flex flex-col items-start gap-4 rounded-lg border border-transparent p-6 transition-all duration-300 hover:border-border/50 hover:bg-card/50 md:flex-row">
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                   <Award className="h-6 w-6" />
