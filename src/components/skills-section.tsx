@@ -1,3 +1,4 @@
+
 'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -43,7 +44,7 @@ const SkillRow = ({ category, onHover, isHovered, isAnyHovered }: { category: an
             )}>
                 <div className="flex items-center gap-6 md:gap-8">
                     {category.icon}
-                    <h3 className="text-3xl md:text-5xl font-bold font-headline tracking-tight text-foreground">{category.name}</h3>
+                    <h3 className="text-2xl md:text-4xl font-bold font-headline tracking-tight text-foreground">{category.name}</h3>
                 </div>
                 <ArrowRight className="h-8 w-8 text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-4 group-hover:translate-x-0" />
             </div>
