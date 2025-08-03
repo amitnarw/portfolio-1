@@ -68,20 +68,26 @@ export function AchievementsSection() {
       ref={containerRef}
       className="container mx-auto max-w-7xl py-20 md:py-32"
     >
-      <div className="grid grid-cols-1 gap-16 md:grid-cols-3">
-        <div className="md:col-span-1">
-          <h2 className="sticky top-24 text-3xl font-bold font-headline tracking-tight md:text-4xl gradient-text">
-            Achievements
-          </h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8">
+        <div className="md:col-span-1 relative">
+            <div className="sticky top-1/2 -translate-y-1/2 pr-8">
+                <h2 className="text-3xl font-bold font-headline tracking-tight md:text-4xl gradient-text">
+                    Achievements
+                </h2>
+                <p className="mt-4 text-foreground/70">
+                    A testament to my dedication to excellence and innovation in web development.
+                </p>
+            </div>
+            <div className="absolute right-0 top-0 hidden h-full w-px bg-border/50 md:block" />
         </div>
-        <div className="space-y-4 md:col-span-2">
+        <div className="space-y-4 md:col-span-2 mt-12 md:mt-0">
           {achievements.map((item, index) => (
             <div 
               key={index} 
               ref={el => itemsRef.current[index] = el}
-              className="achievement-item group"
+              className="achievement-item group border-b border-border/50 last:border-b-0"
             >
-              <div className="flex flex-col items-start gap-4 rounded-lg border border-transparent p-6 transition-all duration-300 hover:border-border/50 hover:bg-card/50 md:flex-row">
+              <div className="flex flex-col items-start gap-4 p-6 transition-all duration-300 md:flex-row">
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                   <Award className="h-6 w-6" />
                 </div>
