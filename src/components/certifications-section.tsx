@@ -81,7 +81,7 @@ export function CertificationsSection() {
             <div
               key={index}
               ref={(el) => (itemsRef.current[index] = el)}
-              className="certification-item group border-b border-border/50 last:border-b-0"
+              className="certification-item group border-b border-dotted border-border last:border-b-0"
             >
               <Link
                 href={item.url}
@@ -118,7 +118,14 @@ export function CertificationsSection() {
                 Validation of my expertise and continuous learning in the ever-evolving tech landscape.
             </p>
           </div>
-          <div className="absolute left-0 top-0 hidden h-full w-px bg-border/50 md:block" />
+           <div 
+              className="absolute left-0 top-0 hidden h-full w-px md:block"
+              style={{
+                backgroundImage: 'linear-gradient(to bottom, hsl(var(--border)) 40%, transparent 40%)',
+                backgroundSize: '1px 10px',
+                backgroundRepeat: 'repeat-y'
+              }}
+            />
         </div>
       </div>
     </motion.section>

@@ -78,14 +78,21 @@ export function AchievementsSection() {
                     A testament to my dedication to excellence and innovation in web development.
                 </p>
             </div>
-            <div className="absolute right-0 top-0 hidden h-full w-px bg-border/50 md:block" />
+            <div 
+              className="absolute right-0 top-0 hidden h-full w-px md:block"
+              style={{
+                backgroundImage: 'linear-gradient(to bottom, hsl(var(--border)) 40%, transparent 40%)',
+                backgroundSize: '1px 10px',
+                backgroundRepeat: 'repeat-y'
+              }}
+            />
         </div>
         <div className="space-y-4 md:col-span-2 mt-12 md:mt-0">
           {achievements.map((item, index) => (
             <div 
               key={index} 
               ref={el => itemsRef.current[index] = el}
-              className="achievement-item group border-b border-border/50 last:border-b-0"
+              className="achievement-item group border-b border-dotted border-border last:border-b-0"
             >
               <div className="flex flex-col items-start gap-4 p-6 transition-all duration-300 md:flex-row">
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
