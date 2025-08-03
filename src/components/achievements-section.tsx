@@ -70,7 +70,7 @@ export function AchievementsSection() {
     >
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8">
         <div className="md:col-span-1 relative">
-            <div className="sticky top-1/2 -translate-y-1/2 pr-8">
+            <div className="md:sticky md:top-1/2 md:-translate-y-1/2 md:pr-8">
                 <h2 className="text-3xl font-bold font-headline tracking-tight md:text-4xl gradient-text">
                     Achievements
                 </h2>

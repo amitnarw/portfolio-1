@@ -76,7 +76,7 @@ export function CertificationsSection() {
       className="container mx-auto max-w-7xl py-20 md:py-32"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8">
-        <div className="space-y-4 md:col-span-2 md:order-1">
+        <div className="space-y-4 md:col-span-2 md:order-1 mt-12 md:mt-0">
           {certifications.map((item, index) => (
             <div
               key={index}
@@ -110,7 +110,7 @@ export function CertificationsSection() {
           ))}
         </div>
         <div className="md:col-span-1 md:order-2 relative">
-          <div className="sticky top-1/2 -translate-y-1/2 pl-8">
+          <div className="md:sticky md:top-1/2 md:-translate-y-1/2 md:pl-8">
             <h2 className="text-3xl font-bold font-headline tracking-tight md:text-4xl gradient-text md:text-right">
                 Certifications
             </h2>
