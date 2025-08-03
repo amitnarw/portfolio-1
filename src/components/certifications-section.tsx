@@ -76,12 +76,30 @@ export function CertificationsSection() {
       className="container mx-auto max-w-7xl py-20 md:py-32"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8">
-        <div className="space-y-4 md:col-span-2 md:order-1 mt-12 md:mt-0">
+        <div className="md:col-span-1 md:order-2 relative mb-12 md:mb-0">
+          <div className="md:sticky md:top-1/2 md:-translate-y-1/2 md:pl-8 text-center md:text-right">
+            <h2 className="text-3xl font-bold font-headline tracking-tight md:text-4xl gradient-text">
+                Certifications
+            </h2>
+            <p className="mt-4 text-foreground/70">
+                Validation of my expertise and continuous learning in the ever-evolving tech landscape.
+            </p>
+          </div>
+           <div 
+              className="absolute left-0 top-0 hidden h-full w-px md:block"
+              style={{
+                backgroundImage: 'linear-gradient(to bottom, hsl(var(--foreground)/0.6) 40%, transparent 40%)',
+                backgroundSize: '1px 10px',
+                backgroundRepeat: 'repeat-y'
+              }}
+            />
+        </div>
+        <div className="space-y-4 md:col-span-2 md:order-1">
           {certifications.map((item, index) => (
             <div
               key={index}
               ref={(el) => (itemsRef.current[index] = el)}
-              className="certification-item group border-b border-dotted border-foreground/80 last:border-b-0"
+              className="certification-item group border-b border-dotted border-foreground/60 last:border-b-0"
             >
               <Link
                 href={item.url}
@@ -108,24 +126,6 @@ export function CertificationsSection() {
               </Link>
             </div>
           ))}
-        </div>
-        <div className="md:col-span-1 md:order-2 relative">
-          <div className="md:sticky md:top-1/2 md:-translate-y-1/2 md:pl-8">
-            <h2 className="text-3xl font-bold font-headline tracking-tight md:text-4xl gradient-text md:text-right">
-                Certifications
-            </h2>
-            <p className="mt-4 text-foreground/70 md:text-right">
-                Validation of my expertise and continuous learning in the ever-evolving tech landscape.
-            </p>
-          </div>
-           <div 
-              className="absolute left-0 top-0 hidden h-full w-px md:block"
-              style={{
-                backgroundImage: 'linear-gradient(to bottom, hsl(var(--foreground)/0.6) 40%, transparent 40%)',
-                backgroundSize: '1px 10px',
-                backgroundRepeat: 'repeat-y'
-              }}
-            />
         </div>
       </div>
     </motion.section>
