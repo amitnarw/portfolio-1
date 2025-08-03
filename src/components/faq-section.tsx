@@ -37,7 +37,7 @@ const sectionVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: 'easeOut', staggerChildren: 0.2 },
+    transition: { duration: 0.8, ease: 'easeOut', staggerChildren: 0.1 },
   },
 };
 
@@ -57,26 +57,28 @@ export function FaqSection() {
       viewport={{ once: true, amount: 0.2 }}
       variants={sectionVariants}
     >
-      <h2 className="mb-12 text-center text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text">
-        Frequently Asked Questions
-      </h2>
-      <motion.div 
-        className="mx-auto max-w-3xl"
+      <motion.h2
+        className="mb-12 text-center text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text"
         variants={itemVariants}
       >
-        <Accordion type="single" collapsible className="w-full">
+        Frequently Asked Questions
+      </motion.h2>
+      <div className="mx-auto max-w-3xl">
+        <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`} className='mb-4 border rounded-lg px-6 bg-card/50'>
-              <AccordionTrigger className='text-left font-semibold text-lg hover:no-underline'>
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className='text-base text-foreground/70'>
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+            <motion.div key={index} variants={itemVariants}>
+              <AccordionItem value={`item-${index}`} className='border rounded-lg px-6 bg-card/50 transition-colors hover:bg-card/75'>
+                <AccordionTrigger className='text-left font-semibold text-lg hover:no-underline'>
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className='text-base text-foreground/70'>
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
           ))}
         </Accordion>
-      </motion.div>
+      </div>
     </motion.section>
   );
 }
