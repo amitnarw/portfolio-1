@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { Award } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +39,6 @@ const achievements = [
 export function AchievementsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -55,19 +53,6 @@ export function AchievementsSection() {
             start: 'top 90%',
             toggleActions: 'play none none reverse',
           },
-        });
-      }
-      
-      if (imageRef.current) {
-        gsap.to(imageRef.current, {
-            yPercent: 20,
-            ease: "none",
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            }
         });
       }
 
@@ -106,54 +91,39 @@ export function AchievementsSection() {
     <motion.section
       id="achievements"
       ref={containerRef}
-      className="relative container mx-auto max-w-7xl py-20 md:py-32 overflow-hidden"
+      className="container mx-auto max-w-7xl py-20 md:py-32"
     >
-      <div className="absolute inset-0 z-0">
-          <div ref={imageRef} className="absolute inset-0 h-[120%] w-full">
-            <Image
-                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1374&auto=format&fit=crop"
-                alt="Abstract background"
-                width={1374}
-                height={916}
-                data-ai-hint="abstract background"
-                className="h-full w-full object-cover"
-            />
-          </div>
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
-      </div>
-      <div className="relative z-10">
-        <h2
-          ref={headingRef}
-          className="mb-12 text-center text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text"
-        >
-          Achievements & Awards
-        </h2>
-        <div className="mx-auto max-w-4xl">
-          <div className="space-y-4">
-            {achievements.map((item, index) => (
-              <div key={index} className="achievement-item">
-                <div className="flex flex-col items-start gap-4 rounded-lg border border-transparent p-6 transition-all duration-300 hover:border-border/50 hover:bg-card/50 md:flex-row">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                    <Award className="h-6 w-6" />
-                  </div>
-                  <div className="flex-grow">
-                    <div className="flex flex-col items-start justify-between md:flex-row">
-                      <h3 className="text-xl font-bold font-headline text-foreground">
-                        {item.title}
-                      </h3>
-                      <p className="flex-shrink-0 text-sm font-medium text-foreground/60 md:mt-1">
-                        {item.year}
-                      </p>
-                    </div>
-                    <p className="mt-1 text-lg text-primary">{item.issuer}</p>
-                    <p className="description mt-3 text-base text-foreground/70">
-                      {item.description}
+      <h2
+        ref={headingRef}
+        className="mb-12 text-center text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text"
+      >
+        Achievements & Awards
+      </h2>
+      <div className="mx-auto max-w-4xl">
+        <div className="space-y-4">
+          {achievements.map((item, index) => (
+            <div key={index} className="achievement-item">
+              <div className="flex flex-col items-start gap-4 rounded-lg border border-transparent p-6 transition-all duration-300 hover:border-border/50 hover:bg-card/50 md:flex-row">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Award className="h-6 w-6" />
+                </div>
+                <div className="flex-grow">
+                  <div className="flex flex-col items-start justify-between md:flex-row">
+                    <h3 className="text-xl font-bold font-headline text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="flex-shrink-0 text-sm font-medium text-foreground/60 md:mt-1">
+                      {item.year}
                     </p>
                   </div>
+                  <p className="mt-1 text-lg text-primary">{item.issuer}</p>
+                  <p className="description mt-3 text-base text-foreground/70">
+                    {item.description}
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </motion.section>
