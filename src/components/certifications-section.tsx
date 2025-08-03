@@ -99,8 +99,16 @@ export function CertificationsSection() {
             <div
               key={index}
               ref={(el) => (itemsRef.current[index] = el)}
-              className="certification-item group border-b border-dotted border-foreground/60 last:border-b-0"
+              className="certification-item group relative"
             >
+              <div 
+                className="absolute bottom-0 left-0 h-px w-full"
+                style={{
+                  backgroundImage: 'linear-gradient(to right, hsl(var(--foreground)/0.6) 40%, transparent 40%)',
+                  backgroundSize: '10px 1px',
+                  backgroundRepeat: 'repeat-x'
+                }}
+              />
               <Link
                 href={item.url}
                 target="_blank"

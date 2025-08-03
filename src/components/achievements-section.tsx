@@ -92,8 +92,16 @@ export function AchievementsSection() {
             <div 
               key={index} 
               ref={el => itemsRef.current[index] = el}
-              className="achievement-item group border-b border-dotted border-foreground/80 last:border-b-0"
+              className="achievement-item group relative"
             >
+              <div 
+                className="absolute bottom-0 left-0 h-px w-full"
+                style={{
+                  backgroundImage: 'linear-gradient(to right, hsl(var(--foreground)/0.6) 40%, transparent 40%)',
+                  backgroundSize: '10px 1px',
+                  backgroundRepeat: 'repeat-x'
+                }}
+              />
               <div className="flex flex-col items-start gap-4 p-6 transition-all duration-300 md:flex-row">
                 <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                   <Award className="h-6 w-6" />
