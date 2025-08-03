@@ -56,7 +56,7 @@ export function Header() {
             </span>
           </div>
         </Link>
-        <nav className="hidden items-center gap-1 rounded-full border border-border/50 bg-background/50 p-1 backdrop-blur-sm md:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-border/50 bg-background/50 p-1 backdrop-blur-sm lg:flex">
           {navItems.map((item) => (
             <Button
               key={item.name}
@@ -77,7 +77,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button onClick={toggleMobileMenu} variant="ghost" size="icon">
               {mobileMenuOpen ? <X /> : <Menu />}
             </Button>
@@ -89,7 +89,7 @@ export function Header() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden bg-card mx-4 rounded-lg border p-4 shadow-lg"
+          className="lg:hidden bg-card/95 backdrop-blur-sm mx-4 rounded-lg border p-4 shadow-lg"
         >
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => (
