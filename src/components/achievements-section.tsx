@@ -70,8 +70,8 @@ export function AchievementsSection() {
     >
       <div className="grid grid-cols-1 gap-16 md:grid-cols-3">
         <div className="md:col-span-1">
-          <h2 className="sticky top-24 text-4xl font-bold font-headline tracking-tight md:text-5xl gradient-text">
-            Achievements & Awards
+          <h2 className="sticky top-24 text-3xl font-bold font-headline tracking-tight md:text-4xl gradient-text">
+            Achievements
           </h2>
         </div>
         <div className="space-y-4 md:col-span-2">
