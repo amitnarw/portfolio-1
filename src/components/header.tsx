@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -11,6 +12,7 @@ import { useState } from "react";
 
 const navItems = [
   { name: "About", href: "#about" },
+  { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
   { name: "Testimonials", href: "#testimonials" },
@@ -20,6 +22,7 @@ const navItems = [
 export function Header() {
   const activeSection = useActiveSection([
     "about",
+    "education",
     "projects",
     "skills",
     "testimonials",
@@ -86,9 +89,10 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   "text-lg",
-                  activeSection === item.href.substring(1)
+                  activeSection === item.href.substring(1) && item.name !== 'Contact'
                     ? "text-primary font-semibold"
-                    : "text-foreground/80"
+                    : "text-foreground/80",
+                   activeSection === 'contact' && item.name === 'Contact' ? "text-primary font-semibold" : ""
                 )}
                 onClick={() => setMobileMenuOpen(false)}
               >
